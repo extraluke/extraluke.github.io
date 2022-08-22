@@ -75,9 +75,7 @@
 				
 					<a class="github" target="_blank" href="https://github.com/extraluke?tab=repositories" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+					<a class="bilibili" target="_blank" href="https://space.bilibili.com/292647754?spm_id_from=333.337.0.0" title="bilibili"><i class="icon-bilibili"></i></a>
 		        
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xie-zi-te-da-hao-23-67" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
@@ -116,9 +114,7 @@
 					
 						<a class="github" target="_blank" href="https://github.com/extraluke?tab=repositories" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+						<a class="bilibili" target="_blank" href="https://space.bilibili.com/292647754?spm_id_from=333.337.0.0" title="bilibili"><i class="icon-bilibili"></i></a>
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/xie-zi-te-da-hao-23-67" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
@@ -738,6 +734,195 @@
 
 
   
+    <article id="post-JavaScript进阶" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/06/26/JavaScript%E8%BF%9B%E9%98%B6/">JavaScript进阶</a>
+    </h1>
+  
+
+        
+        <a href="/2022/06/26/JavaScript%E8%BF%9B%E9%98%B6/" class="archive-article-date">
+  	<time datetime="2022-06-26T01:10:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JavaScript进阶"><a href="#JavaScript进阶" class="headerlink" title="JavaScript进阶"></a>JavaScript进阶</h1><h2 id="01-Offset家族"><a href="#01-Offset家族" class="headerlink" title="01-Offset家族"></a>01-Offset家族</h2><h3 id="成员介绍"><a href="#成员介绍" class="headerlink" title="成员介绍"></a>成员介绍</h3><h4 id="offseatWidth和offsetHeight"><a href="#offseatWidth和offsetHeight" class="headerlink" title="offseatWidth和offsetHeight"></a>offseatWidth和offsetHeight</h4><p>返回元素占据页面的 <strong>实际大小</strong> 。（只读属性并且始终是整数）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ele.<span class="property">offsetWidth</span>/<span class="title class_">Height</span> = 元素自身宽/高 + padding + border  <span class="comment">// 块元素</span></span><br><span class="line">ele.<span class="property">offsetWidth</span>/<span class="title class_">Height</span> = 元素容器的宽/高  <span class="comment">// 行内元素，行内块</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="offsetParent"><a href="#offsetParent" class="headerlink" title="offsetParent"></a>offsetParent</h4><p>返回距离该元素最近的带有定位属性的父元素。</p>
+<p>注意如果当前元素 <code>fixed</code> 定位，那么返回值为 null。</p>
+<h4 id="offsetLeft和offsetTop"><a href="#offsetLeft和offsetTop" class="headerlink" title="offsetLeft和offsetTop"></a>offsetLeft和offsetTop</h4><p>返回元素与它的 <strong>offsetParent</strong> 边框的上左边距，如果元素offsetParent是body，那body的边框宽度也会计算在内。（只读属性且始终是整数）</p>
+<h3 id="02-Event"><a href="#02-Event" class="headerlink" title="02-Event"></a>02-Event</h3><h4 id="获取事件对象"><a href="#获取事件对象" class="headerlink" title="获取事件对象"></a>获取事件对象</h4><p>DOM事件处理函数中使用 event 来获取事件对象。</p>
+<p>在事件处理函数中够可以使用浏览器赋予的形参</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="常见事件对象属性"><a href="#常见事件对象属性" class="headerlink" title="常见事件对象属性"></a>常见事件对象属性</h4><h5 id="1-event-type"><a href="#1-event-type" class="headerlink" title="(1)event.type"></a>(1)event.type</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(event.<span class="property">type</span>); <span class="comment">// 返回出发的事件名称--click</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-event-target"><a href="#2-event-target" class="headerlink" title="(2)event.target"></a>(2)event.target</h5><p>触发事件的元素。</p>
+<h5 id="3-event-currentTargget"><a href="#3-event-currentTargget" class="headerlink" title="(3)event.currentTargget"></a>(3)event.currentTargget</h5><p>绑定事件的元素（IE9以上支持）。</p>
+<p>tips：触发事件的元素不一定就是绑定事件的元素，因为事件存在冒泡，点击某个元素的子元素，那么父元素绑定的事件中，触发事件的元素为子元素，绑定事件的元素为父元素。</p>
+<h5 id="4-event-button"><a href="#4-event-button" class="headerlink" title="(4)event.button"></a>(4)event.button</h5><p>当鼠标事件触发时，鼠标按钮被按下，将会返回一个数值，0，1，2分别代表鼠标左键，滚轮，右键被按下。</p>
+<h5 id="5-event-which"><a href="#5-event-which" class="headerlink" title="(5)event.which"></a><del>(5)event.which</del></h5><p><del>鼠标事件触发时，表示被按下的按钮。值为1，2，3，与上方返回信息0，1，2对应。（被弃用了）</del></p>
+<h5 id="6-鼠标位置信息–事件的属性"><a href="#6-鼠标位置信息–事件的属性" class="headerlink" title="(6)鼠标位置信息–事件的属性"></a>(6)鼠标位置信息–事件的属性</h5><ul>
+<li>pageX&#x2F;pageY  鼠标相对于页面的位置</li>
+<li>clientX&#x2F;clientY  相对于可视区域的位置</li>
+<li>offsetX&#x2F;offsetY  鼠标相对于触发事件的元素，内容区的位置</li>
+<li>screenX&#x2F;screenY  鼠标相对于屏幕的位置（不常用）</li>
+</ul>
+<h5 id="7-键盘信息–事件的属性"><a href="#7-键盘信息–事件的属性" class="headerlink" title="(7)键盘信息–事件的属性"></a>(7)键盘信息–事件的属性</h5><ul>
+<li>key  值的内容</li>
+<li>altKey  触发时alt是否被按下</li>
+<li>ctrlKey  触发时ctrl是否被按下</li>
+<li>shiftKey  触发时shift是否被按下</li>
+</ul>
+<h4 id="阻止默认事件"><a href="#阻止默认事件" class="headerlink" title="阻止默认事件"></a>阻止默认事件</h4><p><code>event.preventDefault()</code></p>
+<p>兼容写法：<code>event.preventDefault?event.preventDefault() : event.returnValue = false;</code></p>
+<h4 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h4><p>利用事件的冒泡机制，以及事件对象中可以准确获取触发事件元素的属性，将多规格使用相同事件进行类似操作的子元素的事件处理函数委托给父元素绑定。</p>
+<h3 id="03-Scroll-Client"><a href="#03-Scroll-Client" class="headerlink" title="03-Scroll+Client"></a>03-Scroll+Client</h3><h4 id="scroll事件"><a href="#scroll事件" class="headerlink" title="scroll事件"></a>scroll事件</h4><p><code>Element.onscroll = function()&#123;&#125;;</code></p>
+<p>几乎任何实体元素都可以绑定过该事件。（设置此事件的元素一定要有滚动条，监听页面的滚动一般用 <code>window.onscroll</code></p>
+<h3 id="04-BOM-浏览器对象模型"><a href="#04-BOM-浏览器对象模型" class="headerlink" title="04-BOM (浏览器对象模型)"></a>04-BOM (浏览器对象模型)</h3><h4 id="URL简介"><a href="#URL简介" class="headerlink" title="URL简介"></a>URL简介</h4><h5 id="1-网址解析"><a href="#1-网址解析" class="headerlink" title="(1)网址解析"></a>(1)网址解析</h5><p>网址统称为URL，统一资源定位符（Uniform Resource Locator）。是互联网上标准资源的地址，互联网上的每一个文件都有一个唯一的URL，它包含的信息指出文件的位置以及浏览器应该如何处理它。</p>
+<p>URL的一般语法格式：</p>
+<p><code>protocol://host[:port]/path/[?query]</code></p>
+<table>
+<thead>
+<tr>
+<th align="left">组成</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">protocol</td>
+<td>通讯协议，常见的是 http,  https</td>
+</tr>
+<tr>
+<td align="left">host</td>
+<td>域名或网络IP地址</td>
+</tr>
+<tr>
+<td align="left">port</td>
+<td>端口号，http协议对应80端口，https对应443端口</td>
+</tr>
+<tr>
+<td align="left">path</td>
+<td>资源路径</td>
+</tr>
+<tr>
+<td align="left">query</td>
+<td>查询参数。以? + 键值对的形式表示，多个键值对通过&amp;符号分隔</td>
+</tr>
+<tr>
+<td align="left">fragment</td>
+<td>片段#后面的内容，常见于链接，锚点</td>
+</tr>
+</tbody></table>
+<h5 id="2-域名"><a href="#2-域名" class="headerlink" title="(2)域名"></a>(2)域名</h5><p>由于IP地址不便记忆，而且不能显示地址组织的名称和特性。人们设计出来域名，通过网域名称系统（DNS）来将域名和IP地址相互映射。</p>
+<p>例如百度的IP地址：<a target="_blank" rel="noopener" href="http://110.242.68.4/">http://110.242.68.4/</a> 通过DNS映射– <a target="_blank" rel="noopener" href="http://baidu.com/">http://baidu.com</a></p>
+<h5 id="3-同源策略"><a href="#3-同源策略" class="headerlink" title="(3)同源策略"></a>(3)同源策略</h5><p>是一个安全策略，意味两个网址的【协议、域名地址或者IP地址、端口号】三者完全一致，有一个不一致即为不同源。</p>
+<h3 id="05-H5-amp-C3补充"><a href="#05-H5-amp-C3补充" class="headerlink" title="05-H5&amp;C3补充"></a>05-H5&amp;C3补充</h3><h4 id="新的拖拽属性"><a href="#新的拖拽属性" class="headerlink" title="新的拖拽属性"></a>新的拖拽属性</h4><p>我们可以通过给元素设置<code>draggable=&quot;true&quot;</code>属性来让元素变成可拖拽元素、</p>
+<h4 id="Web存储"><a href="#Web存储" class="headerlink" title="Web存储"></a>Web存储</h4><h5 id="1-localStorage"><a href="#1-localStorage" class="headerlink" title="(1)localStorage"></a>(1)localStorage</h5><p>这个属性允许我们访问一个对应当前源的local Storage对象。</p>
+<ul>
+<li>除非人为清除，否则存储的数据将长期保留。</li>
+<li>打开多个相同的URL的Tabs页面，会使用相同的localStorage。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>属性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>setItem(key, value)</td>
+<td>存储键&#x2F;值对</td>
+</tr>
+<tr>
+<td>getItem(key)</td>
+<td>按照键获取值</td>
+</tr>
+<tr>
+<td>removeItem(key)</td>
+<td>删除键及其对应的值</td>
+</tr>
+<tr>
+<td>clear()</td>
+<td>删除所有数据</td>
+</tr>
+<tr>
+<td>key(index)</td>
+<td>获取该索引下的键名</td>
+</tr>
+<tr>
+<td>length</td>
+<td>存储的内容的长度</td>
+</tr>
+</tbody></table>
+<h3 id="06-Flex"><a href="#06-Flex" class="headerlink" title="06-Flex"></a>06-Flex</h3><ul>
+<li>justify-content 主轴排列</li>
+<li>align-items 交叉轴排列</li>
+<li>flex-wrap 默认不换行，wrap 换行，第一行在上方。wrap-reverse 换行，第一行在下方。</li>
+<li>align-content 多根轴线的对齐方式，如果项目只有一根轴线，则该属性不起作用。</li>
+<li>flex-direction 方向 align-items方向问题….</li>
+</ul>
+<h3 id="07-AJAX"><a href="#07-AJAX" class="headerlink" title="07-AJAX"></a>07-AJAX</h3><p>我们在浏览器中通过输入确定的URL后，浏览器会向该URL对应的服务器发送请求，服务器对请求作出响应，返回内容，然后浏览器解析返回内容，将其展示出来。</p>
+<h4 id="JS同步、异步"><a href="#JS同步、异步" class="headerlink" title="JS同步、异步"></a>JS同步、异步</h4><h5 id="1-同步任务"><a href="#1-同步任务" class="headerlink" title="(1)同步任务"></a>(1)同步任务</h5><p>前一个任务结束后再执行后一个任务</p>
+<h5 id="2-异步任务–又叫做耗时任务"><a href="#2-异步任务–又叫做耗时任务" class="headerlink" title="(2)异步任务–又叫做耗时任务"></a>(2)异步任务–又叫做耗时任务</h5><ul>
+<li>同步任务由JavaScript主线程依次执行</li>
+<li>异步任务委托给宿主环境执行</li>
+<li>已完成的异步任务对应的</li>
+<li>JavaScript主线程执行栈被清空后，读取任务队列中的回调函数，次序执行</li>
+<li>JavaScript主线程不断重复上一条操作</li>
+</ul>
+<p><strong>JavaScript主线程从任务队列中读取异步任务的回调函数，放到执行栈中依次执行，这个过程是循环不断的，这种运行机制又称为（事件循环）</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/06/26/JavaScript%E8%BF%9B%E9%98%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JavaScript基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1025,195 +1210,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/06/26/JavaScript%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JavaScript进阶" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/26/JavaScript%E8%BF%9B%E9%98%B6/">JavaScript进阶</a>
-    </h1>
-  
-
-        
-        <a href="/2022/06/26/JavaScript%E8%BF%9B%E9%98%B6/" class="archive-article-date">
-  	<time datetime="2022-06-26T01:10:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JavaScript进阶"><a href="#JavaScript进阶" class="headerlink" title="JavaScript进阶"></a>JavaScript进阶</h1><h2 id="01-Offset家族"><a href="#01-Offset家族" class="headerlink" title="01-Offset家族"></a>01-Offset家族</h2><h3 id="成员介绍"><a href="#成员介绍" class="headerlink" title="成员介绍"></a>成员介绍</h3><h4 id="offseatWidth和offsetHeight"><a href="#offseatWidth和offsetHeight" class="headerlink" title="offseatWidth和offsetHeight"></a>offseatWidth和offsetHeight</h4><p>返回元素占据页面的 <strong>实际大小</strong> 。（只读属性并且始终是整数）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ele.<span class="property">offsetWidth</span>/<span class="title class_">Height</span> = 元素自身宽/高 + padding + border  <span class="comment">// 块元素</span></span><br><span class="line">ele.<span class="property">offsetWidth</span>/<span class="title class_">Height</span> = 元素容器的宽/高  <span class="comment">// 行内元素，行内块</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="offsetParent"><a href="#offsetParent" class="headerlink" title="offsetParent"></a>offsetParent</h4><p>返回距离该元素最近的带有定位属性的父元素。</p>
-<p>注意如果当前元素 <code>fixed</code> 定位，那么返回值为 null。</p>
-<h4 id="offsetLeft和offsetTop"><a href="#offsetLeft和offsetTop" class="headerlink" title="offsetLeft和offsetTop"></a>offsetLeft和offsetTop</h4><p>返回元素与它的 <strong>offsetParent</strong> 边框的上左边距，如果元素offsetParent是body，那body的边框宽度也会计算在内。（只读属性且始终是整数）</p>
-<h3 id="02-Event"><a href="#02-Event" class="headerlink" title="02-Event"></a>02-Event</h3><h4 id="获取事件对象"><a href="#获取事件对象" class="headerlink" title="获取事件对象"></a>获取事件对象</h4><p>DOM事件处理函数中使用 event 来获取事件对象。</p>
-<p>在事件处理函数中够可以使用浏览器赋予的形参</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="常见事件对象属性"><a href="#常见事件对象属性" class="headerlink" title="常见事件对象属性"></a>常见事件对象属性</h4><h5 id="1-event-type"><a href="#1-event-type" class="headerlink" title="(1)event.type"></a>(1)event.type</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(event.<span class="property">type</span>); <span class="comment">// 返回出发的事件名称--click</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-event-target"><a href="#2-event-target" class="headerlink" title="(2)event.target"></a>(2)event.target</h5><p>触发事件的元素。</p>
-<h5 id="3-event-currentTargget"><a href="#3-event-currentTargget" class="headerlink" title="(3)event.currentTargget"></a>(3)event.currentTargget</h5><p>绑定事件的元素（IE9以上支持）。</p>
-<p>tips：触发事件的元素不一定就是绑定事件的元素，因为事件存在冒泡，点击某个元素的子元素，那么父元素绑定的事件中，触发事件的元素为子元素，绑定事件的元素为父元素。</p>
-<h5 id="4-event-button"><a href="#4-event-button" class="headerlink" title="(4)event.button"></a>(4)event.button</h5><p>当鼠标事件触发时，鼠标按钮被按下，将会返回一个数值，0，1，2分别代表鼠标左键，滚轮，右键被按下。</p>
-<h5 id="5-event-which"><a href="#5-event-which" class="headerlink" title="(5)event.which"></a><del>(5)event.which</del></h5><p><del>鼠标事件触发时，表示被按下的按钮。值为1，2，3，与上方返回信息0，1，2对应。（被弃用了）</del></p>
-<h5 id="6-鼠标位置信息–事件的属性"><a href="#6-鼠标位置信息–事件的属性" class="headerlink" title="(6)鼠标位置信息–事件的属性"></a>(6)鼠标位置信息–事件的属性</h5><ul>
-<li>pageX&#x2F;pageY  鼠标相对于页面的位置</li>
-<li>clientX&#x2F;clientY  相对于可视区域的位置</li>
-<li>offsetX&#x2F;offsetY  鼠标相对于触发事件的元素，内容区的位置</li>
-<li>screenX&#x2F;screenY  鼠标相对于屏幕的位置（不常用）</li>
-</ul>
-<h5 id="7-键盘信息–事件的属性"><a href="#7-键盘信息–事件的属性" class="headerlink" title="(7)键盘信息–事件的属性"></a>(7)键盘信息–事件的属性</h5><ul>
-<li>key  值的内容</li>
-<li>altKey  触发时alt是否被按下</li>
-<li>ctrlKey  触发时ctrl是否被按下</li>
-<li>shiftKey  触发时shift是否被按下</li>
-</ul>
-<h4 id="阻止默认事件"><a href="#阻止默认事件" class="headerlink" title="阻止默认事件"></a>阻止默认事件</h4><p><code>event.preventDefault()</code></p>
-<p>兼容写法：<code>event.preventDefault?event.preventDefault() : event.returnValue = false;</code></p>
-<h4 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h4><p>利用事件的冒泡机制，以及事件对象中可以准确获取触发事件元素的属性，将多规格使用相同事件进行类似操作的子元素的事件处理函数委托给父元素绑定。</p>
-<h3 id="03-Scroll-Client"><a href="#03-Scroll-Client" class="headerlink" title="03-Scroll+Client"></a>03-Scroll+Client</h3><h4 id="scroll事件"><a href="#scroll事件" class="headerlink" title="scroll事件"></a>scroll事件</h4><p><code>Element.onscroll = function()&#123;&#125;;</code></p>
-<p>几乎任何实体元素都可以绑定过该事件。（设置此事件的元素一定要有滚动条，监听页面的滚动一般用 <code>window.onscroll</code></p>
-<h3 id="04-BOM-浏览器对象模型"><a href="#04-BOM-浏览器对象模型" class="headerlink" title="04-BOM (浏览器对象模型)"></a>04-BOM (浏览器对象模型)</h3><h4 id="URL简介"><a href="#URL简介" class="headerlink" title="URL简介"></a>URL简介</h4><h5 id="1-网址解析"><a href="#1-网址解析" class="headerlink" title="(1)网址解析"></a>(1)网址解析</h5><p>网址统称为URL，统一资源定位符（Uniform Resource Locator）。是互联网上标准资源的地址，互联网上的每一个文件都有一个唯一的URL，它包含的信息指出文件的位置以及浏览器应该如何处理它。</p>
-<p>URL的一般语法格式：</p>
-<p><code>protocol://host[:port]/path/[?query]</code></p>
-<table>
-<thead>
-<tr>
-<th align="left">组成</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">protocol</td>
-<td>通讯协议，常见的是 http,  https</td>
-</tr>
-<tr>
-<td align="left">host</td>
-<td>域名或网络IP地址</td>
-</tr>
-<tr>
-<td align="left">port</td>
-<td>端口号，http协议对应80端口，https对应443端口</td>
-</tr>
-<tr>
-<td align="left">path</td>
-<td>资源路径</td>
-</tr>
-<tr>
-<td align="left">query</td>
-<td>查询参数。以? + 键值对的形式表示，多个键值对通过&amp;符号分隔</td>
-</tr>
-<tr>
-<td align="left">fragment</td>
-<td>片段#后面的内容，常见于链接，锚点</td>
-</tr>
-</tbody></table>
-<h5 id="2-域名"><a href="#2-域名" class="headerlink" title="(2)域名"></a>(2)域名</h5><p>由于IP地址不便记忆，而且不能显示地址组织的名称和特性。人们设计出来域名，通过网域名称系统（DNS）来将域名和IP地址相互映射。</p>
-<p>例如百度的IP地址：<a target="_blank" rel="noopener" href="http://110.242.68.4/">http://110.242.68.4/</a> 通过DNS映射– <a target="_blank" rel="noopener" href="http://baidu.com/">http://baidu.com</a></p>
-<h5 id="3-同源策略"><a href="#3-同源策略" class="headerlink" title="(3)同源策略"></a>(3)同源策略</h5><p>是一个安全策略，意味两个网址的【协议、域名地址或者IP地址、端口号】三者完全一致，有一个不一致即为不同源。</p>
-<h3 id="05-H5-amp-C3补充"><a href="#05-H5-amp-C3补充" class="headerlink" title="05-H5&amp;C3补充"></a>05-H5&amp;C3补充</h3><h4 id="新的拖拽属性"><a href="#新的拖拽属性" class="headerlink" title="新的拖拽属性"></a>新的拖拽属性</h4><p>我们可以通过给元素设置<code>draggable=&quot;true&quot;</code>属性来让元素变成可拖拽元素、</p>
-<h4 id="Web存储"><a href="#Web存储" class="headerlink" title="Web存储"></a>Web存储</h4><h5 id="1-localStorage"><a href="#1-localStorage" class="headerlink" title="(1)localStorage"></a>(1)localStorage</h5><p>这个属性允许我们访问一个对应当前源的local Storage对象。</p>
-<ul>
-<li>除非人为清除，否则存储的数据将长期保留。</li>
-<li>打开多个相同的URL的Tabs页面，会使用相同的localStorage。</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>属性</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>setItem(key, value)</td>
-<td>存储键&#x2F;值对</td>
-</tr>
-<tr>
-<td>getItem(key)</td>
-<td>按照键获取值</td>
-</tr>
-<tr>
-<td>removeItem(key)</td>
-<td>删除键及其对应的值</td>
-</tr>
-<tr>
-<td>clear()</td>
-<td>删除所有数据</td>
-</tr>
-<tr>
-<td>key(index)</td>
-<td>获取该索引下的键名</td>
-</tr>
-<tr>
-<td>length</td>
-<td>存储的内容的长度</td>
-</tr>
-</tbody></table>
-<h3 id="06-Flex"><a href="#06-Flex" class="headerlink" title="06-Flex"></a>06-Flex</h3><ul>
-<li>justify-content 主轴排列</li>
-<li>align-items 交叉轴排列</li>
-<li>flex-wrap 默认不换行，wrap 换行，第一行在上方。wrap-reverse 换行，第一行在下方。</li>
-<li>align-content 多根轴线的对齐方式，如果项目只有一根轴线，则该属性不起作用。</li>
-<li>flex-direction 方向 align-items方向问题….</li>
-</ul>
-<h3 id="07-AJAX"><a href="#07-AJAX" class="headerlink" title="07-AJAX"></a>07-AJAX</h3><p>我们在浏览器中通过输入确定的URL后，浏览器会向该URL对应的服务器发送请求，服务器对请求作出响应，返回内容，然后浏览器解析返回内容，将其展示出来。</p>
-<h4 id="JS同步、异步"><a href="#JS同步、异步" class="headerlink" title="JS同步、异步"></a>JS同步、异步</h4><h5 id="1-同步任务"><a href="#1-同步任务" class="headerlink" title="(1)同步任务"></a>(1)同步任务</h5><p>前一个任务结束后再执行后一个任务</p>
-<h5 id="2-异步任务–又叫做耗时任务"><a href="#2-异步任务–又叫做耗时任务" class="headerlink" title="(2)异步任务–又叫做耗时任务"></a>(2)异步任务–又叫做耗时任务</h5><ul>
-<li>同步任务由JavaScript主线程依次执行</li>
-<li>异步任务委托给宿主环境执行</li>
-<li>已完成的异步任务对应的</li>
-<li>JavaScript主线程执行栈被清空后，读取任务队列中的回调函数，次序执行</li>
-<li>JavaScript主线程不断重复上一条操作</li>
-</ul>
-<p><strong>JavaScript主线程从任务队列中读取异步任务的回调函数，放到执行栈中依次执行，这个过程是循环不断的，这种运行机制又称为（事件循环）</strong></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/06/26/JavaScript%E8%BF%9B%E9%98%B6/">展开全文 >></a>
         </p>
       
 
