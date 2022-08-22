@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>luke&#39;s personal blog</title>
+  <title>Vue知识梳理 | luke&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="luke&#39;s personal blog">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="Vuex1、什么是Vuex？​	Vuex 是 Vue中的 状态管理。可以集中存储管理应用的所有组件状态，可以实现组件之间全局的数据、状态管理，可以方便地实现组件之间共享数据。 （1）先看看Vue中的状态管理​	Vue中要想实现状态自管理，需要：  state 数据源 view state声明后要映射到视图 actions 响应，在视图上用户的输入导致的状态变化    这是Vue中默认的自管理模式：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue知识梳理">
+<meta property="og:url" content="http://example.com/2022/06/28/vue%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="luke&#39;s personal blog">
+<meta property="og:description" content="Vuex1、什么是Vuex？​	Vuex 是 Vue中的 状态管理。可以集中存储管理应用的所有组件状态，可以实现组件之间全局的数据、状态管理，可以方便地实现组件之间共享数据。 （1）先看看Vue中的状态管理​	Vue中要想实现状态自管理，需要：  state 数据源 view state声明后要映射到视图 actions 响应，在视图上用户的输入导致的状态变化    这是Vue中默认的自管理模式：">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://v3.vuex.vuejs.org/flow.png">
+<meta property="og:image" content="https://v3.vuex.vuejs.org/vuex.png">
+<meta property="article:published_time" content="2022-06-28T11:17:02.225Z">
+<meta property="article:modified_time" content="2022-08-22T03:34:01.786Z">
 <meta property="article:author" content="Luke">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://v3.vuex.vuejs.org/flow.png">
   
     <link rel="alternative" href="/atom.xml" title="luke&#39;s personal blog" type="application/atom+xml">
   
@@ -150,269 +157,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-移动端开发梳理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-vue总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/30/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91%E6%A2%B3%E7%90%86/">移动端开发知识梳理</a>
-    </h1>
-  
-
-        
-        <a href="/2022/07/30/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91%E6%A2%B3%E7%90%86/" class="archive-article-date">
-  	<time datetime="2022-07-30T01:22:09.646Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="微信小程序"><a href="#微信小程序" class="headerlink" title="微信小程序"></a>微信小程序</h2><h4 id="01-准备"><a href="#01-准备" class="headerlink" title="01-准备"></a>01-准备</h4><p>首先要成为小程序开发者，在<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/">微信公众平台</a>中的小程序入口注册，完善小程序信息。安装开发者工具后就可以创建小程序项目了。</p>
-<h4 id="02-小程序代码结构和基本配置"><a href="#02-小程序代码结构和基本配置" class="headerlink" title="02-小程序代码结构和基本配置"></a>02-小程序代码结构和基本配置</h4><h5 id="pages"><a href="#pages" class="headerlink" title="pages"></a>pages</h5><p>pages文件夹内存放小程序各个页面，每个界面由以下四个文件组成：</p>
-<ul>
-<li>.wxml 类似html</li>
-<li>.wxss 类似css</li>
-<li>.js 页面脚本代码</li>
-<li>.json 页面配置文件，设置与页面顶部显示内容相关的信息</li>
-</ul>
-<h5 id="utils"><a href="#utils" class="headerlink" title="utils"></a>utils</h5><p>存放项目中常用的依赖，js模块通过 <code>export default</code> 对外暴露接口，其它使用的地方通过 <code>import</code> 引用</p>
-<h5 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h5><p>每个小程序都要在app.js中调用App方法注册小程序实例，绑定生命周期回调函数、错误监听和页面不存在监听函数等。</p>
-<p>页面的<code>.js</code>文 件可以通过<code>var app = getApp()</code> 获取其实例，调用其中定义的方法和变量，但不可以调用生命周期的方法。</p>
-<p>app.js可以理解为多页面数据共享工具。</p>
-<h5 id="app-json"><a href="#app-json" class="headerlink" title="app.json"></a>app.json</h5><p>当前小程序的全局配置，包括所有页面路径、界面表现、网络超时时间、底部tab等….</p>
-<h5 id="app-wxss"><a href="#app-wxss" class="headerlink" title="app.wxss"></a>app.wxss</h5><p>全局样式。定义在这里面的样式，作用于每个页面，定义在page的.wxss只作用于对应的页面，且会覆盖app.wxss中相同的选择器。</p>
-<h4 id="03-基础使用"><a href="#03-基础使用" class="headerlink" title="03-基础使用"></a>03-基础使用</h4><h5 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h5><p>小程序中视图和数据绑定 对象数据变化直接影响视图，视图变化必须同过事件驱动才能改变对象数据。</p>
-<p>使用setData改变数据</p>
-<p><em><u><strong>注意！</strong></u></em></p>
-<ul>
-<li>data应只包括渲染相关的数据</li>
-<li>控制setData的频率</li>
-<li>选择合适的 setData 范围</li>
-<li>setData 应只传发生变化的数据</li>
-<li>后台的setData尽量避免（会抢占前台页面的运行资源）</li>
-</ul>
-<h5 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:for</span>=<span class="string">&quot;&#123;&#123;array&#125;&#125;&quot;</span>&gt;</span></span><br><span class="line">  &#123;&#123;index&#125;&#125;: &#123;&#123;item.message&#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:if</span>=<span class="string">&quot;&#123;&#123;module == &#x27;A&#x27;&#125;&#125;&quot;</span>&gt;</span> A <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:elif</span>=<span class="string">&quot;&#123;&#123;module == &#x27;B&#x27;&#125;&#125;&quot;</span>&gt;</span> B <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:else</span>&gt;</span> C <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="样式导入"><a href="#样式导入" class="headerlink" title="样式导入"></a>样式导入</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@import</span> <span class="string">&quot;xxx.wxss&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-<h5 id="小程序事件"><a href="#小程序事件" class="headerlink" title="小程序事件"></a>小程序事件</h5><table>
-<thead>
-<tr>
-<th align="left">类型</th>
-<th align="left">触发条件</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">touchstart</td>
-<td align="left">手指触摸动作开始</td>
-</tr>
-<tr>
-<td align="left">touchmove</td>
-<td align="left">手指触摸后移动</td>
-</tr>
-<tr>
-<td align="left">touchcancel</td>
-<td align="left">手指触摸动作被打断，如来电提醒，弹窗</td>
-</tr>
-<tr>
-<td align="left">touchend</td>
-<td align="left">手指触摸动作结束</td>
-</tr>
-<tr>
-<td align="left">tap *</td>
-<td align="left">手指触摸后马上离开</td>
-</tr>
-<tr>
-<td align="left">longpress</td>
-<td align="left">手指触摸后，超过350ms再离开，如果指定了事件回调函数并触发了这个事件，tap事件将不被触发</td>
-</tr>
-<tr>
-<td align="left">longtap</td>
-<td align="left">手指触摸后，超过350ms再离开（推荐使用longpress事件代替）</td>
-</tr>
-</tbody></table>
-<h5 id="小程序传参"><a href="#小程序传参" class="headerlink" title="小程序传参"></a>小程序传参</h5><p>小程序在组件上绑定事件后，传递参数时，采用事件对象的自定义属性的方式。</p>
-<p>​		<strong><u><em>业务需求？</em></u></strong>	</p>
-<p>​		点击一个内容跳转到一个新的页面，并且新页面的内容是由点击的内容决定的。比如用户在美团上浏览商品，通常情况下我们去查看详情页面，会发现它的结构都是相同或者类似的，但是内容是由用户点击的内容决定的。</p>
-<p>​		<em><strong><u>分析</u></strong></em></p>
-<p>​		1、如何跳转？</p>
-<p>​		给商品列表中的每一项绑定一个事件，在事件中使用wx.navigateTo({ url: url }) 跳转到新页面。</p>
-<p>​		2、页面中得到参数怎么传递给js？</p>
-<p>​		微信小程序提供自定义属性，<code>data-*</code> 若组件上触发事件，会发送给事件处理函数。</p>
-<p>​		即，<code>data-*</code> 自定义的内容可以在事件执行的时候获取出来，用一个变量接收，并与需要跳转的地址进行拼接，实现明文传参。</p>
-<p>​		3、当前js的参数怎么传递给另一个页面的js？</p>
-<p>​		当前js使用<code>wx.navigateTo(&#123; url: url?Key=value&#125;)</code>明文传参，下个页面在页面一加载时就执行<code>onload：function（options）&#123;&#125;</code>函数，此函数中的参数options就是用来接收所有信息的，它里面包含了传递过来的参数。</p>
-<h4 id="04-微信小程序自定义组件"><a href="#04-微信小程序自定义组件" class="headerlink" title="04-微信小程序自定义组件"></a>04-微信小程序自定义组件</h4><h5 id="创建自定义组件"><a href="#创建自定义组件" class="headerlink" title="创建自定义组件"></a>创建自定义组件</h5><p>​    在components文件夹中再新建一个自定义组件的文件夹，文件夹名即为该自定义组件的组件名。</p>
-<p>​	在新建好的组件包上右键，选择新建component，然后再次输入组件名，输入后，系统会自动生成json  wxml wxss js 4个文件，到此即为新建自定义组件成功。</p>
-<h5 id="使用自定义组件"><a href="#使用自定义组件" class="headerlink" title="使用自定义组件"></a>使用自定义组件</h5><p>​	在使用已注册的自定义组件前，首先要在页面的json文件中进行引用声明。提供每个自定义组件的标签名和对应的自定义组件文件路径。</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;usingComponents&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;counter&quot;</span><span class="punctuation">:</span><span class="string">&quot;../../components/counter/counter&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="05-生命周期"><a href="#05-生命周期" class="headerlink" title="05-生命周期"></a>05-生命周期</h4><h5 id="应用的生命周期"><a href="#应用的生命周期" class="headerlink" title="应用的生命周期"></a>应用的生命周期</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.js 小程序的生命周期函数在app.js中声明</span></span><br><span class="line"><span class="title class_">App</span>(&#123;</span><br><span class="line">  <span class="attr">onLaunch</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="comment">// 小程序初始化（全局只触发一次）</span></span><br><span class="line">    <span class="comment">// 在这里面添加初始操作，如获取用户信息、申请权限、获取服务器数据</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">onShow</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">		<span class="comment">// 小程序显示</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">onHide</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="comment">// 小程序隐藏</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">onError</span>:<span class="keyword">function</span>(<span class="params">msg</span>)&#123;</span><br><span class="line">    <span class="comment">// 小程序错误</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="页面的生命周期"><a href="#页面的生命周期" class="headerlink" title="页面的生命周期"></a>页面的生命周期</h5><ul>
-<li><code>onLoad</code>页面加载时触发，且只发生一次，可以理解为vue中的created。 一般用于获取上个页面传递的参数或数据的初始化操作</li>
-<li>页面载入后触发<code>onShow</code>方法，显示页面，可以理解为mounted。一般用于插件的初始化操作</li>
-<li>离开本页面时，触发<code>onHide</code>方法。</li>
-<li>当页面从页面栈中被销毁时，触发<code>onUnload</code>方法</li>
-</ul>
-<h4 id="06-页面路由"><a href="#06-页面路由" class="headerlink" title="06-页面路由"></a>06-页面路由</h4><p>页面栈以栈的形式维护页面与页面之间的关系。（向箱子里放书，先进后出）小程序页面栈最多10层</p>
-<h5 id="API进行页面跳转"><a href="#API进行页面跳转" class="headerlink" title="API进行页面跳转"></a>API进行页面跳转</h5><h6 id="wx-switchTab"><a href="#wx-switchTab" class="headerlink" title="wx.switchTab"></a><code>wx.switchTab</code></h6><p>跳转到tabBar页面，并关闭所有页面，页面栈仅剩当前页，跳转时不能页面传参。</p>
-<h6 id="wx-reLaunch"><a href="#wx-reLaunch" class="headerlink" title="wx.reLaunch"></a><code>wx.reLaunch</code></h6><p>关闭所有页面，打开到应用内的某个页面，页面栈内仅剩当前页面。<br>使用 wx. reLaunch({ url: ‘pageH’ }) 会重启小程序</p>
-<h6 id="wx-redirecTo"><a href="#wx-redirecTo" class="headerlink" title="wx.redirecTo"></a><code>wx.redirecTo</code></h6><p>关闭当前页面，跳转到应用内某个页面，页面栈数量不增不减。</p>
-<h6 id="wx-navigateTo"><a href="#wx-navigateTo" class="headerlink" title="wx.navigateTo"></a><code>wx.navigateTo</code></h6><p>保留当前页面，跳转到应用内的某个页面，页面栈数量+1</p>
-<h6 id="wx-navigateBack"><a href="#wx-navigateBack" class="headerlink" title="wx.navigateBack"></a><code>wx.navigateBack</code></h6><p>关闭当前页面，返回上一页面或多级页面，页面栈数量-n</p>
-<h6 id="也可使用组件方式跳转"><a href="#也可使用组件方式跳转" class="headerlink" title="也可使用组件方式跳转"></a>也可使用组件方式跳转</h6><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">navigator</span> <span class="attr">url</span>=<span class="string">&quot;pages/logs/index&quot;</span> <span class="attr">open-type</span>=<span class="string">&quot;navigate&quot;</span>&gt;</span>跳转<span class="tag">&lt;/<span class="name">navigator</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">  url 要跳转的页面路径</span></span><br><span class="line"><span class="comment">  open-type 跳转方式 对应上面的跳转方法</span></span><br><span class="line"><span class="comment">  navigate、redirect、switchTab、reLaunch、navigateBack</span></span><br><span class="line"><span class="comment">  delta 当 open-type 为 &#x27;navigateBack&#x27; 时有效，表示回退的层数,默认为 1</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="07-网络请求"><a href="#07-网络请求" class="headerlink" title="07-网络请求"></a>07-网络请求</h4><p>使用<code>wx.request</code></p>
-<p><em><strong><u>封装request！！！</u></strong></em></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> baseUrl <span class="keyword">from</span> <span class="string">&quot;./baseUrl&quot;</span> <span class="comment">// 自己在外面定义好baseUrl，在这引入</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> request = <span class="keyword">function</span>(<span class="params">config</span>)&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve,rejected</span>)=&gt;</span>&#123;</span><br><span class="line">    wx.<span class="title function_">request</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>:baseUrl + config.<span class="property">url</span>,</span><br><span class="line">      <span class="attr">method</span>:config.<span class="property">method</span> ? config.<span class="property">method</span> : <span class="string">&quot;get&quot;</span>,</span><br><span class="line">      <span class="attr">data</span>:config.<span class="property">data</span>,</span><br><span class="line">      <span class="attr">header</span>:&#123;</span><br><span class="line">        <span class="string">&quot;content-type&quot;</span>:<span class="string">&quot;application/x-www-form-urlencoded&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">timeout</span>:<span class="number">5000</span>,</span><br><span class="line">      <span class="title function_">success</span>(<span class="params">res</span>)&#123;</span><br><span class="line">        <span class="title function_">resolve</span>(res)</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="title function_">fail</span>(<span class="params">err</span>)&#123;</span><br><span class="line">        <span class="title function_">rejected</span>(err)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> request</span><br></pre></td></tr></table></figure>
-
-<h4 id="08-页面通讯"><a href="#08-页面通讯" class="headerlink" title="08-页面通讯"></a>08-页面通讯</h4><h5 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h5><p><code>app.globalData</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在app.js中设置对象 globalData&#123;&#125;</span></span><br><span class="line"><span class="comment">// 在要传值的页面引入 var app = getApp();</span></span><br><span class="line">app.<span class="property">globalData</span>.<span class="property">name</span> = <span class="string">&quot;王安石&quot;</span>;</span><br><span class="line"><span class="comment">// 在要接受值的页面引入  var app = getApp();</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(app.<span class="property">globalData</span>.<span class="property">name</span>);</span><br></pre></td></tr></table></figure>
-
-<h5 id="本地缓存"><a href="#本地缓存" class="headerlink" title="本地缓存"></a>本地缓存</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在要传值的页面</span></span><br><span class="line">wx.<span class="title function_">setStorageSync</span>(<span class="string">&quot;name&quot;</span>,<span class="string">&quot;陆游&quot;</span>);</span><br><span class="line"><span class="comment">// 在要接受值的页面</span></span><br><span class="line">wx.<span class="title function_">getStorageSync</span>(<span class="string">&quot;name&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<h5 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在要跳转的路由后面加上 ?key=value&amp;key1=value1 的形式;注意: wx.switchTab 中的 url 不能传参数。</span></span><br><span class="line">wx.<span class="title function_">navigateTo</span>(&#123;</span><br><span class="line">  <span class="attr">url</span>:<span class="string">&#x27;../pagex/pagex?name=&quot;xxx&quot;&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// B页面-接收数据 通过onLoad的option...</span></span><br><span class="line"><span class="title class_">Page</span>(&#123;</span><br><span class="line">  <span class="attr">onLoad</span>:<span class="keyword">function</span>(<span class="params">option</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(option.<span class="property">name</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="uniapp"><a href="#uniapp" class="headerlink" title="uniapp"></a>uniapp</h2><h4 id="01-创建项目"><a href="#01-创建项目" class="headerlink" title="01-创建项目"></a>01-创建项目</h4><p>使用HbuilderX创建项目，新建项目。</p>
-<p>也可以使用cli脚手架创建uni-app项目。</p>
-<h4 id="02-全局css变量"><a href="#02-全局css变量" class="headerlink" title="02-全局css变量"></a>02-全局css变量</h4><p>uni-app 提供内置 CSS 变量</p>
-<table>
-<thead>
-<tr>
-<th align="left">CSS变量</th>
-<th align="left">描述</th>
-<th align="left">App</th>
-<th align="left">小程序</th>
-<th align="left">H5</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">–status-bar-height</td>
-<td align="left">系统状态栏高度</td>
-<td align="left"><a target="_blank" rel="noopener" href="http://www.html5plus.org/doc/zh_cn/navigator.html#plus.navigator.getStatusbarHeight">系统状态栏高度</a></td>
-<td align="left">25px</td>
-<td align="left">0</td>
-</tr>
-<tr>
-<td align="left">–window-top</td>
-<td align="left">内容区域距离顶部的距离</td>
-<td align="left">0</td>
-<td align="left">0</td>
-<td align="left">NavigationBar 的高度</td>
-</tr>
-<tr>
-<td align="left">–window-bottom</td>
-<td align="left">内容区域距离底部的距离</td>
-<td align="left">0</td>
-<td align="left">0</td>
-<td align="left">TabBar 的高度</td>
-</tr>
-</tbody></table>
-<h4 id="03-路由"><a href="#03-路由" class="headerlink" title="03-路由"></a>03-路由</h4><p>需要在pages.json中配置每个路由页面的路径及页面样式。</p>
-<p>pages节点接收一个数组，数组每个项都是一个对象：</p>
-<table>
-<thead>
-<tr>
-<th align="left">属性</th>
-<th align="left">类型</th>
-<th align="left">默认值</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">path</td>
-<td align="left">String</td>
-<td align="left"></td>
-<td align="left">配置页面路径</td>
-</tr>
-<tr>
-<td align="left">style</td>
-<td align="left">Object</td>
-<td align="left"></td>
-<td align="left">配置页面窗口表现</td>
-</tr>
-</tbody></table>
-<ul>
-<li>pages节点第一项为应用入口页，首页。</li>
-<li>应用中新增&#x2F;减少页面都要对pages数组进行修改。</li>
-<li>文件名不需要写后缀。</li>
-</ul>
-<h4 id="04-uni页面通讯"><a href="#04-uni页面通讯" class="headerlink" title="04-uni页面通讯"></a>04-uni页面通讯</h4><ul>
-<li>路由传参</li>
-<li>globalData全局变量</li>
-<li>本地缓存<ul>
-<li>uni.setStorageSync(key,data) 同步存储</li>
-<li>uni.getStorageSync(key) 同步取</li>
-<li>uni.removeStorageSync(key) 同步移除指定key</li>
-<li>uni.clearStorageSync() 同步清理本地缓存</li>
-<li>不加Sync就是异步</li>
-</ul>
-</li>
-<li>vuex</li>
-<li>uni自带api方式<ul>
-<li>uni.$emit(eventName,Object)触发全局的自定义事件。附加参数都会传给监听器回调。</li>
-<li>uni.$on(eventName,callback)监听全局的自定义事件。事件可以由 uni.$emit 触发，回调函数会接收所有传入事件触发函数的额外参数。</li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/30/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91%E6%A2%B3%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vue总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/28/vue%E6%80%BB%E7%BB%93/">Vue知识梳理</a>
+    <h1 class="article-title" itemprop="name">
+      Vue知识梳理
     </h1>
   
 
@@ -530,6 +282,27 @@
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -537,16 +310,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/06/28/vue%E6%80%BB%E7%BB%93/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/06/28/vue%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2022/07/30/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91%E6%A2%B3%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          移动端开发知识梳理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/06/26/JavaScript%E8%BF%9B%E9%98%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript进阶</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -566,613 +407,14 @@
 
 
 
-
   
-    <article id="post-JavaScript进阶" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/26/JavaScript%E8%BF%9B%E9%98%B6/">JavaScript进阶</a>
-    </h1>
   
 
-        
-        <a href="/2022/06/26/JavaScript%E8%BF%9B%E9%98%B6/" class="archive-article-date">
-  	<time datetime="2022-06-26T01:10:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JavaScript进阶"><a href="#JavaScript进阶" class="headerlink" title="JavaScript进阶"></a>JavaScript进阶</h1><h2 id="01-Offset家族"><a href="#01-Offset家族" class="headerlink" title="01-Offset家族"></a>01-Offset家族</h2><h3 id="成员介绍"><a href="#成员介绍" class="headerlink" title="成员介绍"></a>成员介绍</h3><h4 id="offseatWidth和offsetHeight"><a href="#offseatWidth和offsetHeight" class="headerlink" title="offseatWidth和offsetHeight"></a>offseatWidth和offsetHeight</h4><p>返回元素占据页面的 <strong>实际大小</strong> 。（只读属性并且始终是整数）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ele.<span class="property">offsetWidth</span>/<span class="title class_">Height</span> = 元素自身宽/高 + padding + border  <span class="comment">// 块元素</span></span><br><span class="line">ele.<span class="property">offsetWidth</span>/<span class="title class_">Height</span> = 元素容器的宽/高  <span class="comment">// 行内元素，行内块</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="offsetParent"><a href="#offsetParent" class="headerlink" title="offsetParent"></a>offsetParent</h4><p>返回距离该元素最近的带有定位属性的父元素。</p>
-<p>注意如果当前元素 <code>fixed</code> 定位，那么返回值为 null。</p>
-<h4 id="offsetLeft和offsetTop"><a href="#offsetLeft和offsetTop" class="headerlink" title="offsetLeft和offsetTop"></a>offsetLeft和offsetTop</h4><p>返回元素与它的 <strong>offsetParent</strong> 边框的上左边距，如果元素offsetParent是body，那body的边框宽度也会计算在内。（只读属性且始终是整数）</p>
-<h3 id="02-Event"><a href="#02-Event" class="headerlink" title="02-Event"></a>02-Event</h3><h4 id="获取事件对象"><a href="#获取事件对象" class="headerlink" title="获取事件对象"></a>获取事件对象</h4><p>DOM事件处理函数中使用 event 来获取事件对象。</p>
-<p>在事件处理函数中够可以使用浏览器赋予的形参</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="常见事件对象属性"><a href="#常见事件对象属性" class="headerlink" title="常见事件对象属性"></a>常见事件对象属性</h4><h5 id="1-event-type"><a href="#1-event-type" class="headerlink" title="(1)event.type"></a>(1)event.type</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(event.<span class="property">type</span>); <span class="comment">// 返回出发的事件名称--click</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-event-target"><a href="#2-event-target" class="headerlink" title="(2)event.target"></a>(2)event.target</h5><p>触发事件的元素。</p>
-<h5 id="3-event-currentTargget"><a href="#3-event-currentTargget" class="headerlink" title="(3)event.currentTargget"></a>(3)event.currentTargget</h5><p>绑定事件的元素（IE9以上支持）。</p>
-<p>tips：触发事件的元素不一定就是绑定事件的元素，因为事件存在冒泡，点击某个元素的子元素，那么父元素绑定的事件中，触发事件的元素为子元素，绑定事件的元素为父元素。</p>
-<h5 id="4-event-button"><a href="#4-event-button" class="headerlink" title="(4)event.button"></a>(4)event.button</h5><p>当鼠标事件触发时，鼠标按钮被按下，将会返回一个数值，0，1，2分别代表鼠标左键，滚轮，右键被按下。</p>
-<h5 id="5-event-which"><a href="#5-event-which" class="headerlink" title="(5)event.which"></a><del>(5)event.which</del></h5><p><del>鼠标事件触发时，表示被按下的按钮。值为1，2，3，与上方返回信息0，1，2对应。（被弃用了）</del></p>
-<h5 id="6-鼠标位置信息–事件的属性"><a href="#6-鼠标位置信息–事件的属性" class="headerlink" title="(6)鼠标位置信息–事件的属性"></a>(6)鼠标位置信息–事件的属性</h5><ul>
-<li>pageX&#x2F;pageY  鼠标相对于页面的位置</li>
-<li>clientX&#x2F;clientY  相对于可视区域的位置</li>
-<li>offsetX&#x2F;offsetY  鼠标相对于触发事件的元素，内容区的位置</li>
-<li>screenX&#x2F;screenY  鼠标相对于屏幕的位置（不常用）</li>
-</ul>
-<h5 id="7-键盘信息–事件的属性"><a href="#7-键盘信息–事件的属性" class="headerlink" title="(7)键盘信息–事件的属性"></a>(7)键盘信息–事件的属性</h5><ul>
-<li>key  值的内容</li>
-<li>altKey  触发时alt是否被按下</li>
-<li>ctrlKey  触发时ctrl是否被按下</li>
-<li>shiftKey  触发时shift是否被按下</li>
-</ul>
-<h4 id="阻止默认事件"><a href="#阻止默认事件" class="headerlink" title="阻止默认事件"></a>阻止默认事件</h4><p><code>event.preventDefault()</code></p>
-<p>兼容写法：<code>event.preventDefault?event.preventDefault() : event.returnValue = false;</code></p>
-<h4 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h4><p>利用事件的冒泡机制，以及事件对象中可以准确获取触发事件元素的属性，将多规格使用相同事件进行类似操作的子元素的事件处理函数委托给父元素绑定。</p>
-<h3 id="03-Scroll-Client"><a href="#03-Scroll-Client" class="headerlink" title="03-Scroll+Client"></a>03-Scroll+Client</h3><h4 id="scroll事件"><a href="#scroll事件" class="headerlink" title="scroll事件"></a>scroll事件</h4><p><code>Element.onscroll = function()&#123;&#125;;</code></p>
-<p>几乎任何实体元素都可以绑定过该事件。（设置此事件的元素一定要有滚动条，监听页面的滚动一般用 <code>window.onscroll</code></p>
-<h3 id="04-BOM-浏览器对象模型"><a href="#04-BOM-浏览器对象模型" class="headerlink" title="04-BOM (浏览器对象模型)"></a>04-BOM (浏览器对象模型)</h3><h4 id="URL简介"><a href="#URL简介" class="headerlink" title="URL简介"></a>URL简介</h4><h5 id="1-网址解析"><a href="#1-网址解析" class="headerlink" title="(1)网址解析"></a>(1)网址解析</h5><p>网址统称为URL，统一资源定位符（Uniform Resource Locator）。是互联网上标准资源的地址，互联网上的每一个文件都有一个唯一的URL，它包含的信息指出文件的位置以及浏览器应该如何处理它。</p>
-<p>URL的一般语法格式：</p>
-<p><code>protocol://host[:port]/path/[?query]</code></p>
-<table>
-<thead>
-<tr>
-<th align="left">组成</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">protocol</td>
-<td>通讯协议，常见的是 http,  https</td>
-</tr>
-<tr>
-<td align="left">host</td>
-<td>域名或网络IP地址</td>
-</tr>
-<tr>
-<td align="left">port</td>
-<td>端口号，http协议对应80端口，https对应443端口</td>
-</tr>
-<tr>
-<td align="left">path</td>
-<td>资源路径</td>
-</tr>
-<tr>
-<td align="left">query</td>
-<td>查询参数。以? + 键值对的形式表示，多个键值对通过&amp;符号分隔</td>
-</tr>
-<tr>
-<td align="left">fragment</td>
-<td>片段#后面的内容，常见于链接，锚点</td>
-</tr>
-</tbody></table>
-<h5 id="2-域名"><a href="#2-域名" class="headerlink" title="(2)域名"></a>(2)域名</h5><p>由于IP地址不便记忆，而且不能显示地址组织的名称和特性。人们设计出来域名，通过网域名称系统（DNS）来将域名和IP地址相互映射。</p>
-<p>例如百度的IP地址：<a target="_blank" rel="noopener" href="http://110.242.68.4/">http://110.242.68.4/</a> 通过DNS映射– <a target="_blank" rel="noopener" href="http://baidu.com/">http://baidu.com</a></p>
-<h5 id="3-同源策略"><a href="#3-同源策略" class="headerlink" title="(3)同源策略"></a>(3)同源策略</h5><p>是一个安全策略，意味两个网址的【协议、域名地址或者IP地址、端口号】三者完全一致，有一个不一致即为不同源。</p>
-<h3 id="05-H5-amp-C3补充"><a href="#05-H5-amp-C3补充" class="headerlink" title="05-H5&amp;C3补充"></a>05-H5&amp;C3补充</h3><h4 id="新的拖拽属性"><a href="#新的拖拽属性" class="headerlink" title="新的拖拽属性"></a>新的拖拽属性</h4><p>我们可以通过给元素设置<code>draggable=&quot;true&quot;</code>属性来让元素变成可拖拽元素、</p>
-<h4 id="Web存储"><a href="#Web存储" class="headerlink" title="Web存储"></a>Web存储</h4><h5 id="1-localStorage"><a href="#1-localStorage" class="headerlink" title="(1)localStorage"></a>(1)localStorage</h5><p>这个属性允许我们访问一个对应当前源的local Storage对象。</p>
-<ul>
-<li>除非人为清除，否则存储的数据将长期保留。</li>
-<li>打开多个相同的URL的Tabs页面，会使用相同的localStorage。</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>属性</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>setItem(key, value)</td>
-<td>存储键&#x2F;值对</td>
-</tr>
-<tr>
-<td>getItem(key)</td>
-<td>按照键获取值</td>
-</tr>
-<tr>
-<td>removeItem(key)</td>
-<td>删除键及其对应的值</td>
-</tr>
-<tr>
-<td>clear()</td>
-<td>删除所有数据</td>
-</tr>
-<tr>
-<td>key(index)</td>
-<td>获取该索引下的键名</td>
-</tr>
-<tr>
-<td>length</td>
-<td>存储的内容的长度</td>
-</tr>
-</tbody></table>
-<h3 id="06-Flex"><a href="#06-Flex" class="headerlink" title="06-Flex"></a>06-Flex</h3><ul>
-<li>justify-content 主轴排列</li>
-<li>align-items 交叉轴排列</li>
-<li>flex-wrap 默认不换行，wrap 换行，第一行在上方。wrap-reverse 换行，第一行在下方。</li>
-<li>align-content 多根轴线的对齐方式，如果项目只有一根轴线，则该属性不起作用。</li>
-<li>flex-direction 方向 align-items方向问题….</li>
-</ul>
-<h3 id="07-AJAX"><a href="#07-AJAX" class="headerlink" title="07-AJAX"></a>07-AJAX</h3><p>我们在浏览器中通过输入确定的URL后，浏览器会向该URL对应的服务器发送请求，服务器对请求作出响应，返回内容，然后浏览器解析返回内容，将其展示出来。</p>
-<h4 id="JS同步、异步"><a href="#JS同步、异步" class="headerlink" title="JS同步、异步"></a>JS同步、异步</h4><h5 id="1-同步任务"><a href="#1-同步任务" class="headerlink" title="(1)同步任务"></a>(1)同步任务</h5><p>前一个任务结束后再执行后一个任务</p>
-<h5 id="2-异步任务–又叫做耗时任务"><a href="#2-异步任务–又叫做耗时任务" class="headerlink" title="(2)异步任务–又叫做耗时任务"></a>(2)异步任务–又叫做耗时任务</h5><ul>
-<li>同步任务由JavaScript主线程依次执行</li>
-<li>异步任务委托给宿主环境执行</li>
-<li>已完成的异步任务对应的</li>
-<li>JavaScript主线程执行栈被清空后，读取任务队列中的回调函数，次序执行</li>
-<li>JavaScript主线程不断重复上一条操作</li>
-</ul>
-<p><strong>JavaScript主线程从任务队列中读取异步任务的回调函数，放到执行栈中依次执行，这个过程是循环不断的，这种运行机制又称为（事件循环）</strong></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/06/26/JavaScript%E8%BF%9B%E9%98%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JavaScript基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/26/JavaScript%E5%9F%BA%E7%A1%80/">JavaScript基础</a>
-    </h1>
   
 
-        
-        <a href="/2022/06/26/JavaScript%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2022-06-26T01:10:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JavaScript基础1"><a href="#JavaScript基础1" class="headerlink" title="JavaScript基础1"></a>JavaScript基础1</h1><h2 id="01-变量"><a href="#01-变量" class="headerlink" title="01-变量"></a>01-变量</h2><h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>​	存储数据的容器，使用变量来保存数据。</p>
-<h4 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h4><p>​	使用 <code>var</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message;</span><br><span class="line">message = <span class="string">&#x27;hello&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>​	简洁一点：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message = <span class="string">&#x27;hello&#x27;</span>;  <span class="comment">//定义变量并赋值</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(message);  <span class="comment">//控制台打印</span></span><br></pre></td></tr></table></figure>
-
-<p>​	同时声明多个变量：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> user = ’<span class="title class_">John</span>‘，</span><br><span class="line">		age = <span class="number">15</span>，</span><br><span class="line">		message = ’hello‘；</span><br></pre></td></tr></table></figure>
-
-<h4 id="变量命名"><a href="#变量命名" class="headerlink" title="变量命名"></a>变量命名</h4><p>​	1、变量名称必须仅仅包含字母、数字、符号$ 和 _ 。</p>
-<p>​	2、首字母必须为非数字。</p>
-<p>​	3、严格区分大小写。</p>
-<p>​	4、不能使用JavaScript中的关键字。</p>
-<p>​	5、使用驼峰命名法。</p>
-<p>​	6、语义化命名。</p>
-<h2 id="02-数据类型"><a href="#02-数据类型" class="headerlink" title="02-数据类型"></a>02-数据类型</h2><h4 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h4><p>​	<strong>Number数据类型</strong>，包括整数和浮点数</p>
-<p>​	特殊数值：</p>
-<p>​		<code>Infinity</code> 无穷大，加负号表示负无穷。</p>
-<p>​		<code>NaN</code> 表示一个计算错误。</p>
-<p>​	<strong>String数据类型</strong></p>
-<p>​	字符串，被包括在引号里。’’</p>
-<p>​	<strong>Boolean类型（逻辑类型）</strong></p>
-<p>​	仅包含两个值：<code>true	</code> <code>false</code></p>
-<p>​	<strong>null值</strong></p>
-<p>​	<strong>undefined值</strong>（未被赋值的）</p>
-<h4 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h4><p>​	引用数据类型用于存储数据集合更复杂的实体。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数组：表示一类数据的集合</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">24</span>,<span class="number">23</span>,<span class="number">21</span>,<span class="number">25</span>,<span class="number">22</span>];<span class="comment">//存储年龄的集合</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//对象：</span></span><br><span class="line"><span class="keyword">var</span> user =&#123;</span><br><span class="line">  name = <span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">  age = <span class="number">24</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数：</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="title function_">alert</span>(<span class="string">&#x27;hello&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="基本数据类型和引用数据类型的区别"><a href="#基本数据类型和引用数据类型的区别" class="headerlink" title="基本数据类型和引用数据类型的区别"></a>基本数据类型和引用数据类型的区别</h4><p>​	基本数据类型，变量里存储的就是里面的信息，而引用数据类型里面的变量，存储的不是对象自身，而是该对象的“内存地址”。</p>
-<h2 id="03-数据类型转换（隐式转换）"><a href="#03-数据类型转换（隐式转换）" class="headerlink" title="03-数据类型转换（隐式转换）"></a>03-数据类型转换（隐式转换）</h2><pre><code>#### 其它数据类型--&gt;Number
-</code></pre>
-<p>​	1、字符串—数字</p>
-<p>​			字符串是纯数字，直接将其转换为数字。如果有非数字的内容，将其转换为NaN。如果字符串是一个空串或是一个全空格的字符串，则转换为0。</p>
-<p>​	2、布尔—数字</p>
-<p>​			true转为1，false转为0。</p>
-<p>​	3、null—数字</p>
-<p>​			0。</p>
-<p>​	4、undefined—数字</p>
-<p>​			结果为NaN。</p>
-<h4 id="其它数据类型–-gt-Boolean"><a href="#其它数据类型–-gt-Boolean" class="headerlink" title="其它数据类型–&gt;Boolean"></a>其它数据类型–&gt;Boolean</h4><p>​	1、数字—布尔</p>
-<p>​			除了0和NaN，其余都是true。</p>
-<p>​	2、字符串—布尔</p>
-<p>​			除了空串，都是true。</p>
-<p>​	3、null 和 undefined 转为false。</p>
-<p>​	4、对象 转为true。</p>
-<h4 id="隐式类型转换"><a href="#隐式类型转换" class="headerlink" title="隐式类型转换"></a>隐式类型转换</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">转换为number类型: <span class="title class_">Number</span>()</span><br><span class="line">转换为string类型: <span class="title class_">String</span>()</span><br><span class="line">转换为boolean类型: <span class="title class_">Boolean</span>()</span><br></pre></td></tr></table></figure>
-
-<h2 id="04-算数运算符"><a href="#04-算数运算符" class="headerlink" title="04-算数运算符"></a>04-算数运算符</h2><h4 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h4><p>​	加 +</p>
-<p>​	减 -</p>
-<p>​	乘 *</p>
-<p>​	除 &#x2F;</p>
-<p>​	获得余数 %</p>
-<p>​	优先级 （    ）</p>
-<p>​	对非Number类型的值进行运算时，会将这些值转换为Number后在进行运算。</p>
-<p>​	任何值**<u>和字符串做加法运算</u>**，都会先转换为字符串，然后再做拼串操作。即使这个字符串为空。</p>
-<h4 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h4><p>​	大于 <code>&gt;</code>	小于<code>&lt;</code> 	</p>
-<p>​	大于等于 <code>&gt;=</code> 	小于等于<code>&lt;=</code></p>
-<p>​	检查两个值相等 	<code>a == b</code></p>
-<p>​	检查两个值不相等 	<code>a != b</code></p>
-<p>​	所有比较运算符均返回布尔值。</p>
-<h4 id="非数值的比较"><a href="#非数值的比较" class="headerlink" title="非数值的比较"></a>非数值的比较</h4><p>​	1、会将其转换为数字后再比较。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> &gt; <span class="literal">true</span>); <span class="comment">//false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> &gt;= <span class="literal">true</span>); <span class="comment">//true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span> &gt; <span class="string">&#x27;0&#x27;</span>); <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">10</span> &gt; <span class="literal">null</span>); <span class="comment">//true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">10</span> &lt; <span class="literal">undefined</span>); <span class="comment">//false</span></span><br><span class="line"><span class="comment">//任何值和NaN作比较都是false</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">10</span> &lt;= <span class="string">&#x27;hello&#x27;</span>); <span class="comment">//false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">true</span> &gt; <span class="literal">false</span>); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-<p>​	2、如果两侧都是字符串，则不会将其转换为数字进行比较。（依次按照字母的<code>Unicode</code>编码值比较）</p>
-<h4 id="x3D-x3D-符号"><a href="#x3D-x3D-符号" class="headerlink" title="&#x3D;&#x3D; 符号"></a>&#x3D;&#x3D; 符号</h4><p>​	目的是判断是否等于，而不是赋值。会将不同类型的东西转为想同类型进行比较。</p>
-<p>​	NaN不和任何值相等，包括它本身。</p>
-<h4 id="x3D-x3D-x3D-严格相等符号"><a href="#x3D-x3D-x3D-严格相等符号" class="headerlink" title="&#x3D;&#x3D;&#x3D; 严格相等符号"></a>&#x3D;&#x3D;&#x3D; 严格相等符号</h4><p>​	&#x3D;&#x3D;&#x3D; 全等 不会做类型转换。</p>
-<h2 id="05-逻辑运算符"><a href="#05-逻辑运算符" class="headerlink" title="05-逻辑运算符"></a>05-逻辑运算符</h2><h4 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h4><p>​	与（且） <code>&amp;&amp;</code>	或 <code>||</code>	非<code>！</code></p>
-<h4 id="非布尔值的与或运算"><a href="#非布尔值的与或运算" class="headerlink" title="非布尔值的与或运算"></a>非布尔值的与或运算</h4><p>​	先将其转换为布尔值，然后再运算，但是返回结果是原值。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = <span class="number">5</span> &amp;&amp; <span class="number">6</span>; <span class="comment">//运算过程 true &amp;&amp; true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;result&#x27;</span> + result); <span class="comment">//输出值为6</span></span><br></pre></td></tr></table></figure>
-
-<p>与运算中：<code>表达式1 &amp;&amp; 表达式2</code></p>
-<p>​	1 true 返回2</p>
-<p>​	1 false 返回1</p>
-<p>或运算中：<code>表达式1 || 表达式2</code></p>
-<p>​	1 true 返回1</p>
-<p>​	1 false 返回2</p>
-<h2 id="06-自增运算"><a href="#06-自增运算" class="headerlink" title="06-自增运算"></a>06-自增运算</h2><p>遇到这种情况；对一个变量做运算，并将新的结果存储在同一个变量中。</p>
-<p>使用运算符 <code>+=</code> <code>*=</code> <code>-=</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">2</span>;</span><br><span class="line">n += <span class="number">5</span>; <span class="comment">// 现在 n = 7（等同于 n = n + 5）</span></span><br><span class="line">n *= <span class="number">2</span>; <span class="comment">// 现在 n = 14（等同于 n = n * 2）</span></span><br><span class="line">n -= <span class="number">2</span>; <span class="comment">// 现在 n = 12 (等同于 n = n - 2;)</span></span><br><span class="line"><span class="title function_">alert</span>( n ); <span class="comment">// 14</span></span><br></pre></td></tr></table></figure>
-
-<p>这些运算符被称为 “修改并赋值” 运算符。</p>
-<h4 id="自增1和自减1"><a href="#自增1和自减1" class="headerlink" title="自增1和自减1"></a>自增1和自减1</h4><p>1、自增 <code>++</code></p>
-<p>2、自减 <code>--</code></p>
-<p>​	自增、自减智能应用于<strong>变量</strong>。</p>
-<p>​	注意一下 <code>counter++</code> <code>++counter</code>的区别</p>
-<p>​	返回值的不同</p>
-<h2 id="07-parseInt-和-parseFloat"><a href="#07-parseInt-和-parseFloat" class="headerlink" title="07-parseInt() 和 parseFloat()"></a>07-parseInt() 和 parseFloat()</h2><p><code>parseInt()</code>是专门用来对付字符串的。</p>
-<p>​	将字符串中的有效的整数内容转换为数字。</p>
-<p>​	<strong>注意：1、只保留字符串最开头的数字，后面的自动消失。</strong></p>
-<p>​				<strong>2、取整，不四舍五入。</strong></p>
-<p>​				3、如果对非 String使用 parseInt()，它会先将其转换为 String然后再操作。</p>
-<p>​				4、带两个参数时，表示进制转换。</p>
-<p><code>parseFloat()</code>是专门用来对付字符串的。</p>
-<p>​	与parseInt不同的是，parseFloat()可以获得有效的小数部分。</p>
-<h1 id="JavaScript基础2"><a href="#JavaScript基础2" class="headerlink" title="JavaScript基础2"></a>JavaScript基础2</h1><h2 id="01-Math对象"><a href="#01-Math对象" class="headerlink" title="01-Math对象"></a>01-Math对象</h2><p>​	Math对象是一个工具类，不需要创建对象。</p>
-<p>​	Math.abs() 绝对值</p>
-<p>​	Math.floor() 向下取整（小的）</p>
-<p>​	Math.ceil() 向上取整（大的）</p>
-<p>​	Math.round() 四舍五入取整</p>
-<p>​	Math.random() 	<strong>随机数 [ 0, 1 )</strong></p>
-<p>​	Math.max(x, y, z)  &#x2F;Math.min()  多个数之中的最大值、最小值</p>
-<p>​	Math.pow(x, y)  x的y次方</p>
-<p>​	Math.sqrt() 对某个数开方</p>
-<h2 id="02-拼接字符串"><a href="#02-拼接字符串" class="headerlink" title="02-拼接字符串"></a>02-拼接字符串</h2><pre><code>#### 使用 + 运算
-</code></pre>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;john&#x27;</span>;</span><br><span class="line"><span class="title function_">alert</span>(<span class="string">&#x27;hello,&#x27;</span> + name + <span class="string">&#x27;!&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<h4 id="使用反引号"><a href="#使用反引号" class="headerlink" title="使用反引号"></a>使用反引号</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;john&#x27;</span>;</span><br><span class="line"><span class="title function_">alert</span>(<span class="string">`hello, <span class="subst">$&#123;name&#125;</span>!`</span>);</span><br></pre></td></tr></table></figure>
-
-<p><code>$&#123;…&#125;</code> 内的表达式或者变量会被计算，计算结果会成为字符串的一部分。</p>
-<h2 id="03-选择语句-if"><a href="#03-选择语句-if" class="headerlink" title="03-选择语句-if"></a>03-选择语句-if</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(...)&#123;</span><br><span class="line">   </span><br><span class="line">   &#125;</span><br><span class="line"><span class="comment">//如果()里面是true，则运行&#123;&#125;里面的语句</span></span><br></pre></td></tr></table></figure>
-
-<p>if语句会把()里面的表达式计算结果转换为布尔类型。</p>
-<h4 id="多个条件"><a href="#多个条件" class="headerlink" title="多个条件"></a>多个条件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> year = <span class="title function_">prompt</span>(<span class="string">&#x27;哪一年发布了ES2015&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (year &lt; <span class="number">2015</span>) &#123;</span><br><span class="line">  <span class="title function_">alert</span>( <span class="string">&#x27;Too early...&#x27;</span> );</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (year &gt; <span class="number">2015</span>) &#123;</span><br><span class="line">  <span class="title function_">alert</span>( <span class="string">&#x27;Too late&#x27;</span> );</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="title function_">alert</span>( <span class="string">&#x27;Exactly!&#x27;</span> );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在上面的代码中，JavaScript 先先检查 <code>year &lt; 2015</code>。如果条件不符合，就会转到下一个条件 <code>year &gt; 2015</code>。如果这个条件也不符合，则会显示最后一个 <code>alert</code>。</p>
-<h2 id="04-for循环"><a href="#04-for循环" class="headerlink" title="04-for循环"></a>04-for循环</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (begin; condition; step) &#123;</span><br><span class="line">  <span class="comment">// ……循环体……</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>begin</th>
-<th><code>i = 0</code></th>
-<th align="left">进入循环时执行一次。</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>condition</td>
-<td><code>i &lt; 3</code></td>
-<td align="left">在每次循环迭代之前检查，如果为 false，停止循环。</td>
-</tr>
-<tr>
-<td>body（循环体）</td>
-<td><code>console.log(i)</code></td>
-<td align="left">条件为真时，重复运行。</td>
-</tr>
-<tr>
-<td>step</td>
-<td><code>i++</code></td>
-<td align="left">在每次循环体迭代后执行。</td>
-</tr>
-</tbody></table>
-<h2 id="05-循环语句-while"><a href="#05-循环语句-while" class="headerlink" title="05-循环语句-while"></a>05-循环语句-while</h2><h4 id="while基础"><a href="#while基础" class="headerlink" title="while基础"></a>while基础</h4><p><code>while</code>循环语句语法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (condition) &#123;</span><br><span class="line">  <span class="comment">//代码</span></span><br><span class="line">  <span class="comment">//循环体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当 <code>condition</code>为 <code>true</code> 时，执行循环体。</p>
-<p>当 <code>condition</code>为 <code>false</code> 时，循环体结束，当condition &#x3D; 0 时也结束。</p>
-<h4 id="do-while"><a href="#do-while" class="headerlink" title="do-while"></a>do-while</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">  <span class="comment">//循环体</span></span><br><span class="line">&#125;<span class="keyword">while</span> (condition);</span><br></pre></td></tr></table></figure>
-
-<p>​	首先执行循环体，然后检查条件，当条件为真时，重复执行循环体。</p>
-<p>​	不管条件是否为真，循环体至少执行一次。</p>
-<h2 id="06-三元运算符’-’"><a href="#06-三元运算符’-’" class="headerlink" title="06-三元运算符’?’"></a>06-三元运算符’?’</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = condition ? value1 : value2;</span><br></pre></td></tr></table></figure>
-
-<p>​	计算条件结果，如果结果为真，返回 <code>value1</code>，否则返回<code>value2</code>。</p>
-<p>例如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age = <span class="title function_">prompt</span>(<span class="string">&#x27;请输入你的年龄&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> judge = age &gt; <span class="number">18</span> ? <span class="title function_">alert</span>(<span class="string">&#x27;可以观看&#x27;</span>) : <span class="title function_">alert</span>(<span class="string">&#x27;禁止观看&#x27;</span>)；</span><br></pre></td></tr></table></figure>
-
-<h1 id="JavaScript基础3"><a href="#JavaScript基础3" class="headerlink" title="JavaScript基础3"></a>JavaScript基础3</h1><h2 id="01-switch"><a href="#01-switch" class="headerlink" title="01-switch"></a>01-switch</h2><p>​	switch语句可以替代多个<code>if</code>判断。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(x) &#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="string">&#x27;value1&#x27;</span>;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">&#x27;value2&#x27;</span>;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">&#x27;value3&#x27;</span>;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="attr">default</span>:</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​	<strong>注意</strong>：如果没有<code>break</code> 那么程序将不经过任何检查就会继续执行下一个 <code>case</code></p>
-<p>​				<code>switch</code>里面的相等判断是严格相等</p>
-<h2 id="02-数组"><a href="#02-数组" class="headerlink" title="02-数组"></a>02-数组</h2><h4 id="数组的样式和声明"><a href="#数组的样式和声明" class="headerlink" title="数组的样式和声明"></a>数组的样式和声明</h4><p>​	数组可以存储任何类型的元素，但是一般一个数组存储的数据都是同一类数据。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;Apple&#x27;</span>, &#123;<span class="attr">name</span>: <span class="string">&#x27;John&#x27;</span>&#125;, <span class="literal">true</span>, <span class="keyword">function</span>(<span class="params"></span>), <span class="title function_">alert</span>(<span class="string">&#x27;Hello&#x27;</span>)];</span><br></pre></td></tr></table></figure>
-
-<p>​	创建一个空数组有两种语法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="title class_">Array</span>();</span><br><span class="line"><span class="keyword">var</span> arr = [];</span><br></pre></td></tr></table></figure>
-
-<p>​	一般使用第二种方法。</p>
-<h4 id="索引和长度"><a href="#索引和长度" class="headerlink" title="索引和长度"></a>索引和长度</h4><p>​	1、数组元素从0开始编号。</p>
-<p>​	2、可以使用 <code>length</code>属性来获取数组的长度。（也是元素的个数）</p>
-<h4 id="遍历数组"><a href="#遍历数组" class="headerlink" title="遍历数组"></a>遍历数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>, <span class="string">&#x27;赵六&#x27;</span>];</span><br><span class="line"><span class="comment">//1、for 循环遍历数组</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++)&#123;</span><br><span class="line">  	<span class="variable language_">console</span>.<span class="title function_">log</span>(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2、for of 遍历数组元素</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> arr1 <span class="keyword">of</span> arr)&#123;</span><br><span class="line">  	<span class="variable language_">console</span>.<span class="title function_">log</span>(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="数组方法"><a href="#数组方法" class="headerlink" title="数组方法"></a>数组方法</h4><ul>
-<li><code>push</code> 在末端添加一个元素。</li>
-<li><code>unshift</code> 在首端添加一个元素。</li>
-<li><code>shift</code> 删除数组首端的一个元素。</li>
-<li><code>pop</code> 从末端删除一个元素。</li>
-<li><code>splice</code> 删除数组某一位置的元素。</li>
-<li><code>concat</code> 连接多个数组。</li>
-<li><code>join</code> 将数组转换为字符串。</li>
-</ul>
-<h2 id="03-数组排序"><a href="#03-数组排序" class="headerlink" title="03-数组排序"></a>03-数组排序</h2><h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">6</span>, <span class="number">77</span>, <span class="number">66</span>, <span class="number">33</span>, <span class="number">145</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="comment">//外层for循环控制轮次</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; arr.<span class="property">length</span>; i++)&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr.<span class="property">length</span> - i; j++)&#123;</span><br><span class="line">    <span class="comment">//如果索引为j 的值比它后面的那个值大，那么这两个值交换位置</span></span><br><span class="line">    <span class="keyword">if</span>(arr[j] &gt; arr[j + <span class="number">1</span>])&#123;</span><br><span class="line">      <span class="comment">//交换位置</span></span><br><span class="line">      <span class="keyword">var</span> temp = arr [j];</span><br><span class="line">      arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">      arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h4><p>​	首先找到数组中最小的那个元素,其次,将他和数组的第一个元素交换位置。再次，在剩下的元素中找到最小的元素，将他与数组的第二个元素交换位置。如此往复，直到将整个数组排序。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++)&#123;</span><br><span class="line">  	<span class="keyword">var</span> minIndex = i;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> j = i + <span class="number">1</span>; j &lt; arr.<span class="property">length</span>; j++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(arr[minIndex] &gt; arr[j])&#123;</span><br><span class="line">      minIndex = j;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (minIndex !== i)&#123;</span><br><span class="line">    <span class="comment">//交换位置</span></span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="JavaScript基础4"><a href="#JavaScript基础4" class="headerlink" title="JavaScript基础4"></a>JavaScript基础4</h1><h2 id="01-函数"><a href="#01-函数" class="headerlink" title="01-函数"></a>01-函数</h2><h4 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">showMessage</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="title function_">alert</span>(<span class="string">&#x27;Hello World!&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​	函数调用可以通过<code> showMessage()</code></p>
-<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><p>​	我们可以通过参数（函数参数）来将任意数据传递给函数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">showMessage</span>(<span class="params"><span class="keyword">from</span>, text</span>) &#123;</span><br><span class="line">  	<span class="title function_">alert</span>(<span class="keyword">from</span> + <span class="string">&#x27;:&#x27;</span> + text);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​	函数的参数包括 形参 和 实参。</p>
-<h4 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h4><pre><code> 返回值相当于 函数调用完，开发人员暴露给外界的一个数据，供外界去使用。
-</code></pre>
-<p>​	<code>return</code></p>
-<h2 id="02-对象"><a href="#02-对象" class="headerlink" title="02-对象"></a>02-对象</h2><h4 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h4><p>​	对象的作用是：<strong>封装信息</strong>。</p>
-<p>​	1、对象是单个事物的抽象。</p>
-<p>​	2、对象时一个容器，封装了<strong>属性</strong>和<strong>方法</strong>。</p>
-<p>​	通过使用带有可选属性列表的花括号 <code>&#123; ... &#125;</code>来创建对象。</p>
-<p>​	！将实物抽象成一条条的属性，一个属性就是一个键值对。（’key : value’）。</p>
-<p>​		键 <code>key</code>是一个字符串。</p>
-<p>​		值<code>value</code>可以是任何值。</p>
-<h4 id="分类和创建"><a href="#分类和创建" class="headerlink" title="分类和创建"></a>分类和创建</h4><p>​	1、内置对象：</p>
-<p>​			Es标准定义的对象。</p>
-<p>​	2、宿主对象：</p>
-<p>​			JS运行环境提供的对象，目前主要是浏览器提供的对象。—– <code>console</code>、<code>document</code></p>
-<p>​	3、自定义对象：</p>
-<p>​			开发人员自己创建的对象。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  	<span class="attr">name</span>: <span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">  	<span class="attr">sex</span>: <span class="string">&#x27;男&#x27;</span>,</span><br><span class="line">  	<span class="attr">age</span>: <span class="number">24</span>,</span><br><span class="line">  	<span class="attr">children</span>: &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;小明&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  	<span class="comment">//还可以再对象中增加一个方法。以后可以通过obj.sayName()的方式调用这个方法。</span></span><br><span class="line">  	<span class="attr">sayName</span>: <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">      	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Say hi!&#x27;</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="获取对象中的属性"><a href="#获取对象中的属性" class="headerlink" title="获取对象中的属性"></a>获取对象中的属性</h4><p>​	对象.属性名</p>
-<p>​	如果获取对象中没有的属性，会返回 <code>undefined</code>。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//向obj中添加一个name属性</span></span><br><span class="line">obj.<span class="property">name</span> = <span class="string">&quot;张三&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//向obj中添加一个sex属性</span></span><br><span class="line">obj.<span class="property">sex</span> = <span class="string">&quot;男&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//向obj中添加一个age属性</span></span><br><span class="line">obj.<span class="property">age</span> = <span class="number">18</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取对象中的属性，并打印出来</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">sex</span>); <span class="comment">// 打印结果：男</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">color</span>); <span class="comment">// 打印结果：undefined</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>#### 修改对象属性值
-</code></pre>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对象.属性名 = 新值;</span></span><br><span class="line">obj.<span class="property">name</span> = <span class="string">&#x27;tom&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<h4 id="删除对象的属性"><a href="#删除对象的属性" class="headerlink" title="删除对象的属性"></a>删除对象的属性</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> obj.<span class="property">name</span>;</span><br></pre></td></tr></table></figure>
-
-<h1 id="JavaScript基础5"><a href="#JavaScript基础5" class="headerlink" title="JavaScript基础5"></a>JavaScript基础5</h1><h2 id="01-JSON对象"><a href="#01-JSON对象" class="headerlink" title="01-JSON对象"></a>01-JSON对象</h2><p>​	JSON对象是网络间数据传输的一种格式（目前比较流行）</p>
-<p>​	js为我们提供了 JSON对象的两个方法 </p>
-<p>​        <strong>JSON.stringify();</strong> &#x2F;&#x2F;可以把 对象 转换成字符串(符合json格式的字符串)</p>
-<p>​        <strong>JSON.parse();</strong> &#x2F;&#x2F; 可以把 json格式的字符串 转回对象</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">    <span class="attr">username</span>: <span class="string">&#x27;张三&#x27;</span>,</span><br><span class="line">    <span class="attr">pwd</span>: <span class="string">&#x27;123456&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// JSON格式的字符串 ,属性名 必须带有双引号</span></span><br><span class="line"><span class="keyword">var</span> jsonStr = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(user);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(jsonStr); <span class="comment">// &#x27;&#123;&quot;username&quot;:&quot;张三&quot;,&quot;pwd&quot;:&quot;123456&quot;&#125;&#x27;</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;&#123;username: &quot;张三&quot;,pwd: &quot;123456&quot;&#125;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只有 json格式的字符串才可以变回对象</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">JSON</span>.<span class="title function_">parse</span>(jsonStr));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">JSON</span>.<span class="title function_">parse</span>(str)); <span class="comment">// 报错 str不是json格式</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="02-作用域"><a href="#02-作用域" class="headerlink" title="02-作用域"></a>02-作用域</h2><p>​	作用域 即为变量的作用范围。</p>
-<p>​	在JS当中，有两种作用域：1、全局作用域	2、函数作用域</p>
-<h4 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h4><p>​	直接编写在script标签中的JS代码，都在全局作用域。</p>
-<p>​	它在页面打开时创建，在页面关闭时销毁。</p>
-<p>​	在全局作用域中有一个全局对象 window ，它由浏览器创建，我们可以直接使用。</p>
-<p>​	页面中多个script标签的作用域是相通的（全局作用域）。</p>
-<h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><p>​	在函数内部</p>
-<h4 id="全局变量和局部变量"><a href="#全局变量和局部变量" class="headerlink" title="全局变量和局部变量"></a>全局变量和局部变量</h4><p>​	全局作用域中创建的变量叫做全局变量，在页面中任何地方都可以使用。</p>
-<p>​	函数作用域中创建的变量叫做局部变量，只能在函数内部使用。</p>
-<h2 id="03-作用域链和声明提升"><a href="#03-作用域链和声明提升" class="headerlink" title="03-作用域链和声明提升"></a>03-作用域链和声明提升</h2><h4 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h4><p>​	当作用域创建成功时，都会有一个指针<strong>指向自己的上一层作用域</strong>。注意是上一层。</p>
-<p>​	每一个作用域的上一层作用域，我们叫做它的 <strong>父级作用域。</strong></p>
-<p>​	变量的查找规则：</p>
-<p>​		1、现在自身作用域中查找，如果找不到就向自己的父级作用域查找，如果依然没有，就继续向上一层查找。</p>
-<p>​		2、如果找到全局作用域都没有，则 报错。</p>
-<p>​	<strong>总结：沿着作用域链向上查找，找到为止，找不到则报错。</strong></p>
-<h4 id="声明提升"><a href="#声明提升" class="headerlink" title="声明提升"></a>声明提升</h4><p>​	在JS中 用var声明的变量，用function 声明的具名函数，会在代码执行前就被提升到作用域的最前面运行。</p>
-<h2 id="04-递归"><a href="#04-递归" class="headerlink" title="04-递归"></a>04-递归</h2><p>当一个函数调用自身时，就称其为递归。</p>
-<p>​	思路：简化任务，调用自身。</p>
-<p>举个例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">pow</span>(<span class="params">x, n</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (n == <span class="number">1</span>) ? x : (x * <span class="title function_">pow</span>(x, n - <span class="number">1</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>最大的嵌套调用次数（包括首次）称为 递归深度。</strong></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/06/26/JavaScript%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CSS常见面试题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/26/CSS%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/">Css常见面试题</a>
-    </h1>
   
 
-        
-        <a href="/2022/06/26/CSS%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2022-06-26T01:10:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="CSS常见面试题"><a href="#CSS常见面试题" class="headerlink" title="CSS常见面试题"></a>CSS常见面试题</h1><h2 id="01-盒子模型"><a href="#01-盒子模型" class="headerlink" title="01-盒子模型"></a>01-盒子模型</h2><h4 id="1、标准盒子模型-W3C"><a href="#1、标准盒子模型-W3C" class="headerlink" title="1、标准盒子模型(W3C)"></a>1、标准盒子模型(W3C)</h4><p>​	盒子的大小由 宽高，内边距，边框决定</p>
-<p>​	padding的颜色由背景色延伸，border的颜色会继承color 字体的颜色，默认black。</p>
-<h4 id="2、IE盒子模型（怪异盒模型）"><a href="#2、IE盒子模型（怪异盒模型）" class="headerlink" title="2、IE盒子模型（怪异盒模型）"></a>2、IE盒子模型（怪异盒模型）</h4><p>​	盒子的大小等于设置的宽高，如果再设置padding或者border，会压缩内容区。</p>
-<h4 id="3、切换方式"><a href="#3、切换方式" class="headerlink" title="3、切换方式"></a>3、切换方式</h4><p>​	通过<code>box-sizing</code>实现</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">box-sizing</span>:content-box;	<span class="comment">/*（标准）*/</span></span><br><span class="line"><span class="attribute">box-sizing</span>:border -box;	<span class="comment">/*（IE）*/</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="4、当元素设置成inline-block会出现什么问题？如何解决？"><a href="#4、当元素设置成inline-block会出现什么问题？如何解决？" class="headerlink" title="4、当元素设置成inline-block会出现什么问题？如何解决？"></a>4、当元素设置成inline-block会出现什么问题？如何解决？</h4><p>​	inline-block宽度由内容撑开，换行显示或者空格分隔时会有间距。</p>
-<p>​	如何去除边距？</p>
-<p>​		1、在代码中把空格、换行符删除。</p>
-<p>​		2、设置大的box，font-size&#x3D;0 ，如果inline-block里面有文字，再单独设置里面的文字大小。</p>
-<h4 id="5、行内元素可以设置padding、margin吗？"><a href="#5、行内元素可以设置padding、margin吗？" class="headerlink" title="5、行内元素可以设置padding、margin吗？"></a>5、行内元素可以设置padding、margin吗？</h4><p>​	margin左右有效，上下无效。</p>
-<p>​	padding左右有效，上下的padding不会占据页面空间，所以也无效。</p>
-<h4 id="6、什么是边距重叠？什么情况下会发生边距重叠？如何解决边距重叠？"><a href="#6、什么是边距重叠？什么情况下会发生边距重叠？如何解决边距重叠？" class="headerlink" title="6、什么是边距重叠？什么情况下会发生边距重叠？如何解决边距重叠？"></a>6、什么是边距重叠？什么情况下会发生边距重叠？如何解决边距重叠？</h4><p>​	如果两个box都设置了margin，那么垂直方向上，编剧重叠，以绝对值大的那个边距作为最终显示效果。</p>
-<p>​		1、同级关系重叠。</p>
-<p>​		2、父子关系重叠。<strong>（嵌套崩塌）</strong></p>
-<p>​			给子元素设置了margin，父元素也生效了。使用<code>overflow: hidden</code></p>
-<h2 id="02-BFC"><a href="#02-BFC" class="headerlink" title="02-BFC"></a>02-BFC</h2><h4 id="1、什么是BFC？"><a href="#1、什么是BFC？" class="headerlink" title="1、什么是BFC？"></a>1、什么是BFC？</h4><p>​	一个特殊的块，内部有自己的布局方式，不受外边元素的影响。</p>
-<h4 id="2、BFC的原理（只记区别）"><a href="#2、BFC的原理（只记区别）" class="headerlink" title="2、BFC的原理（只记区别）"></a>2、BFC的原理（只记区别）</h4><p>​	1、内部的Box会在垂直方向上一个接一个的放置。</p>
-<p>​	2、垂直方向上的距离由margin决定。（完整的说法是：属于同一个BFC的两个相邻Box的margin会发生重叠（塌陷），与方向无关。）</p>
-<p>​	3、每个元素的左外边距与包含块的左边界相接触（从左向右），即使浮动元素也是如此。（这说明BFC中子元素不会超出他的包含块，而position为absolute的元素可以超出他的包含块边界）</p>
-<p>​	<strong>4、BFC的区域不会与float的元素区域重叠。</strong></p>
-<p>​	<strong>5、计算BFC高度时，浮动的子元素也参与计算。</strong>	</p>
-<p>​	6、BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面元素，反之亦然。</p>
-<h4 id="3、符合什么条件即为BFC？"><a href="#3、符合什么条件即为BFC？" class="headerlink" title="3、符合什么条件即为BFC？"></a>3、符合什么条件即为BFC？</h4><p>​	1、float。</p>
-<p>​	2、position属性为 absolute或者fixed。</p>
-<p>​	3、display属性为 inline-block、table-cell、flex、inline-flex。</p>
-<p>​	4、overflow属性不为visible </p>
-<h4 id="4、BFC使用场景"><a href="#4、BFC使用场景" class="headerlink" title="4、BFC使用场景"></a>4、BFC使用场景</h4><p>​	1、清除元素内部浮动。</p>
-<p>​	2、解决外边距合并问题（嵌套崩塌）。</p>
-<p>​	3、制作右侧自适应盒子问题。</p>
-<h2 id="03-浮动影响清除"><a href="#03-浮动影响清除" class="headerlink" title="03-浮动影响清除"></a>03-浮动影响清除</h2><h4 id="1、额外标签法"><a href="#1、额外标签法" class="headerlink" title="1、额外标签法"></a>1、额外标签法</h4><p>​	<strong>在最后一个浮动标签后，加一个块标签，对其设置  clear : both;</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.fahter</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">400px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">border</span>: <span class="number">1px</span> solid deeppink;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.big</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: darkorange;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.small</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">120px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: darkmagenta;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.footer</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">900px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: darkslateblue;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.clear</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">clear</span>:both;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;fahter&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;big&quot;</span>&gt;</span>big<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;small&quot;</span>&gt;</span>small<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;clear&quot;</span>&gt;</span>额外标签法<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2、父级元素添加over-flow：hidden"><a href="#2、父级元素添加over-flow：hidden" class="headerlink" title="2、父级元素添加over-flow：hidden"></a>2、父级元素添加over-flow：hidden</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.fahter</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid deeppink;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="3、after伪元素清除浮动"><a href="#3、after伪元素清除浮动" class="headerlink" title="3、after伪元素清除浮动"></a>3、after伪元素清除浮动</h4><p>​	引入这个标签，以后谁用，就把类名加上clearfix</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">		<span class="attribute">content</span>:<span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  	<span class="attribute">display</span>: block;</span><br><span class="line">  	<span class="attribute">clear</span>:both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/06/26/CSS%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -1195,8 +437,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
